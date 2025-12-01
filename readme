@@ -1,0 +1,24 @@
+🌲 PathFinder: Depth-First Search (DFS) Implementation
+Proyek Python sederhana untuk menemukan jalur dari titik awal ke titik tujuan dalam sebuah graf menggunakan algoritma Depth-First Search (DFS).
+
+📝 Deskripsi Proyek
+Kode ini mengimplementasikan algoritma pencarian graf. Meskipun strukturnya mirip dengan Breadth-First Search (BFS), penggunaan queue.pop(-1) mengubah sifat antrian menjadi Stack (LIFO), menjadikannya implementasi dari Depth-First Search (DFS). DFS bekerja dengan menjelajahi sejauh mungkin setiap cabang sebelum melakukan backtracking.
+
+Awal: 'A'
+Tujuan: 'F'
+Peta Graf: peta1
+
+Hasil (Output)
+Untuk kasus ini, jalur yang ditemukan adalah:
+['A', 'D', 'F']
+
+Penjelasan Kode dan Konsep
+1. Representasi Graf (peta1)
+Graf dibuat menggunakan dictionary Python. Setiap kunci adalah sebuah Node (titik), dan nilainya adalah himpunan (set) dari Node yang terhubung langsung (tetangga).
+
+2. Mekanisme DFS (Depth-First Search)
+Algoritma ini menjelajahi graf secara mendalam.
+queue = [[mulai]] (Stack LIFO): Meskipun diberi nama queue, kode ini menggunakan prinsip Stack karena adanya pop(-1). Ini berarti jalur yang terakhir dimasukkan akan pertama kali dikeluarkan dan diproses.
+visited = set(): Melacak node yang sudah dijelajahi untuk menghindari loop tak terbatas dan pengulangan.
+jalur = queue.pop(-1): Operasi ini adalah yang mendefinisikan DFS. Jalur akan diperpanjang sedalam mungkin sebelum algoritma kembali (backtrack) untuk mencoba cabang lain.
+Hasil: DFS akan menemukan jalur pertama yang ada. Dalam kasus ini, jalur 'A' -> 'D' -> 'F' ditemukan terlebih dahulu karena 'D' diproses segera setelah 'A' dieksplorasi.
